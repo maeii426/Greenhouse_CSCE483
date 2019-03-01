@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>sGreen Create Account Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="/static/css/create_new_account.css">
+    <script src="/static/js/create_new_account.js"></script>
+    <img src="/static/pictures/favicon.ico" style="display:none;">
+</head>
+<body class="body">
+    <div style="background:#222 !important" class="jumbotron">
+        <div style="color:#9d9d9d" class="container">
+            <!-- Create account tag inside of jumbotron -->
+            <div class="row">
+                <center>
+                <img src="/static/pictures/favicon.ico" class="img-responsive" style="height:150px"/>
+                </center>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align:center">
+                    <h1 style="color:#9d9d9d">Create an Account</h1>
+                    <p style="color:#9d9d9d">You know you want to!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Div to contain any title messages -->
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4" id="message-title"></div>
+		<div class="col-md-4"></div>
+	</div>
+
+	<!-- Persinal Information Title -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><h2>Personal Information:</h2></div>
+        <div class="col-md-4"></div>
+    </div>
+
+	<!-- Username Input Box -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 form-group" id="username-input-box">
+            <label for="usr" id="username-overtext">Username:</label>
+            <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+	<!-- First and last name input boxes -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2 form-group" id="fname-input-box">
+            <label for="fname" id="fname-overtext">First Name:</label>
+            <input type="text" class="form-control" id="fname">
+        </div>
+        
+        <div class="col-md-2 form-group" id="lname-input-box">
+            <label for="lname" id="lname-overtext">Last Name:</label>
+            <input type="text" class="form-control" id="lname">
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+	<!-- Email input box -->
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 form-group" id="email-input-box">
+            <label for="email" id="email-overtext">Email:</label>
+            <input type="text" class="form-control" id="email">			
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+	
+	<!-- Create Password Title -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>Create Password:</h2>
+			<h4>Passwords may contain only letters and numbers.</h4>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    
+    <!-- Passsword Box -->
+    <div class="row">
+		<div class="col-md-4"></div>
+        <div class="col-md-4 form-group" id="password-input-box">
+            <label for="pwd" id="password-overtext">Password:</label>
+            <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    
+    <!-- Confirm Password Box -->
+    <div class="row">
+		<div class="col-md-4"></div>
+        <div class="col-md-4 form-group" id="password-confirm-input-box">
+            <label for="pwd-confirm" id="password-overtext">Confirm Password:</label>
+            <input type="password" class="form-control" id="pwd-confirm">
+        </div>
+		<div class="col-md-4"></div>
+    </div>
+    
+	<!-- Phone Number Titles -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="phone-title"><h2>Phone Numbers:</h2></div>
+        <div class="col-md-4"></div>
+    </div>
+    
+    <!-- List of phone numbers -->
+    <div id="phone-list">
+        <div class="row" id="phone-div-1">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 form-group" id="phone-input-box-1">
+                <label for="phone-1" id="phone-overtext-1">Phone Number:</label>
+                <input type="text" class="form-control" id="phone-1">
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+	<!-- Add phone and remove phone buttons -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-info" onclick="AddPhone()" id="add-phone">Add Phone</button>
+            <button type="button" class="btn btn-danger disabled" onclick="RemovePhone()" id="remove-phone">
+                Remove Phone
+                </button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+	<!-- Addresses Title -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="address-title"><h2>Addresses:</h2></div>
+        <div class="col-md-4"></div>
+    </div>
+    
+	<!-- Address List -->
+    <div id="address-list">
+        <!-- Start of one address -->
+        <div id="address-1">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><h4>Address 1:</h4></div>
+                <div class="col-md-4"></div>
+            </div>
+
+            <div class="row">
+				<!-- House Number Box -->
+                <div class="col-md-4"></div>
+                <div class="col-md-1 form-group" id="number-input-box-1">
+                    <label for="number-1" id="number-overtext-1">Number:</label>
+                    <input type="text" class="form-control" id="number-1">
+                </div>
+                
+                <!-- Street Name Box -->
+                <div class="col-md-3 form-group" id="street-input-box-1">
+                    <label for="street-1" id="street-overtext-1">Street Name:</label>
+                    <input type="text" class="form-control" id="street-1">
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+            <div class="row">
+				<!-- City Box -->
+                <div class="col-md-4"></div>
+                <div class="col-md-2 form-group" id="city-input-box-1">
+                    <label for="city-1" id="city-overtext-1">City:</label>
+                    <input type="text" class="form-control" id="city-1">
+                </div>
+
+				<!-- Zip Box -->
+                <div class="col-md-2 form-group" id="zip-input-box-1">
+                    <label for="zip-1" id="zip-overtext-1">Zip Code:</label>
+                    <input type="text" class="form-control" id="zip-1">
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+            <div class="row">
+				<!-- State Box -->
+                <div class="col-md-4"></div>
+                <div class="col-md-2 form-group" id="state-input-box-1">
+                    <label for="state-1" id="state-overtext-1">State:</label>
+                    <select class="form-control" id="state-1" name="state-1">
+                        <option value="">Select One</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DC">District of Columbia</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="IA">Iowa</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MD">Maryland</option>
+                        <option value="ME">Maine</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MT">Montana</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NY">New York</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VA">Virginia</option>
+                        <option value="VT">Vermont</option>
+                        <option value="WA">Washington</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+
+				<!-- isGreenhouse Box -->
+                <div class="col-md-1 form-group" id="isGreenhouse-input-box-1">
+                    <label for="isGreenhouse-1" id="isGreenhouse-overtext-1">isGreenhouse:</label>
+                    <select class="form-control" id="isGreenhouse-1" name="isGreenhouse-1">
+                        <option value="">Select One</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+				<!-- isResidence Box -->
+                <div class="col-md-1 form-group" id="isResidence-input-box-1">
+                    <label for="isResidence-1" id="isResidence-overtext-1">isResidence:</label>
+                    <select class="form-control" id="isResidence-1" name="isResidence-1">
+                        <option value="">Select One</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+        <!-- End of one address -->
+    </div>
+
+	<!-- Add/Remove Address Buttons -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 form-group">
+            <button type="button" class="btn btn-info" id="add-address" onclick="AddAddress()">Add Address</button>
+            <button type="button" class="btn btn-danger disabled" id="remove-address" onclick="RemoveAddress()">
+                Remove Address
+            </button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+	<!-- Extra space to pad the two sets of buttons -->
+    <div class="row col-md-12" style="height:20px;"></div>
+
+	<!-- Submit Account/Cancel Buttons -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 form-group">
+            <button type="button" class="btn btn-primary btn-large" id="submit-account" onclick="SubmitAccount()">
+                Submit New Account
+            </button>
+            <button type="button" class="btn btn-default btn-large" id="cancel" onclick="window.location.href = '/';">
+                Cancel
+            </button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+	<!-- Placeholder to add in the return to login page button -->
+	<div class="row">
+		<div class="col-md-4"></div>
+		
+		<div class="col-md-4 text-center" id="return-to-login">
+		
+		</div>
+		
+		<div class="col-md-4"></div>
+	</div>
+
+    <footer class="footer">
+        <div class="container">
+            <p id="footer-text" class="text-muted"></p>
+        </div>
+    </footer>
+</body>
+</html>

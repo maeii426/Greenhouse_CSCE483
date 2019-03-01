@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<style>
+body { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yOS8xMiKqq3kAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABHklEQVRIib2Vyw6EIAxFW5idr///Qx9sfG3pLEyJ3tAwi5EmBqRo7vHawiEEERHS6x7MTMxMVv6+z3tPMUYSkfTM/R0fEaG2bbMv+Gc4nZzn+dN4HAcREa3r+hi3bcuu68jLskhVIlW073tWaYlQ9+F9IpqmSfq+fwskhdO/AwmUTJXrOuaRQNeRkOd5lq7rXmS5InmERKoER/QMvUAPlZDHcZRhGN4CSeGY+aHMqgcks5RrHv/eeh455x5KrMq2yHQdibDO6ncG/KZWL7M8xDyS1/MIO0NJqdULLS81X6/X6aR0nqBSJcPeZnlZrzN477NKURn2Nus8sjzmEII0TfMiyxUuxphVWjpJkbx0btUnshRihVv70Bv8ItXq6Asoi/ZiCbU6YgAAAABJRU5ErkJggg==);}
+.error-template {padding: 40px 15px;text-align: center;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }
+
+.text-muted {
+        color: #777;
+}
+
+/* Sticky footer styles
+   -------------------------------------------------- */
+html {
+      position: relative;
+            min-height: 100%;
+}
+body {
+      /* Margin bottom by footer height */
+      margin-bottom: 60px;
+}
+.footer {
+      position: absolute;
+            bottom: 0;
+                  //width: 100%;
+                    /* Set the fixed height of the footer here */
+                    height: 60px;
+}
+
+
+/* Custom page CSS
+   -------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+      padding: 60px 15px 0;
+}
+.container .text-muted {
+      margin: 20px 0;
+}
+
+.footer > .container {
+      padding-right: 15px;
+            padding-left: 15px;
+}
+
+code {
+      font-size: 80%;
+}
+</style>
+<script>
+/* ------------------------------------------------------------------------ */
+/* Developer: Andrew Kirfman                                                */
+/* Project: CSCE-483 Smart Greenhouse                                       */
+/*                                                                          */
+/* File: ./dummy.js                                                         */
+/* ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------- */
+/* Code to Execute on Page Load                                              */
+/* ------------------------------------------------------------------------- */
+
+window.onload = function update_footer_date()
+{
+        date = new Date().getFullYear();
+        document.getElementById('footer-text').innerHTML = "&copy; TeamGreenThumb "
+            + date + ": Andrew Kirfman, Aaron Ayrault, Cuong Do, Margaret Baxter, Sean McClain,"
+            + " Ifra Traiq";
+};
+
+/* ------------------------------------------------------------------------- */
+/* Initial Variable Declarations                                             */
+/* ------------------------------------------------------------------------- */
+
+var host_parser = document.createElement('a');
+host_parser.href = window.location.href;
+var host_addr = host_parser.host;
+
+/* ------------------------------------------------------------------------- */
+/* Websocket Communication                                                   */
+/* ------------------------------------------------------------------------- */
+
+var socket_addr = "ws://" + host_addr + "/ws_404";
+var ws = new WebSocket(socket_addr);
+
+ws.onopen = function()
+{  };
+
+ws.onmessage = function(received_message)
+{
+    
+
+};
+
+ws.onclose = function()
+{  };
+
+/* ------------------------------------------------------------------------- */
+/* Miscallaneous Functions                                                   */
+/* ------------------------------------------------------------------------- */
+
+function add_contact_support()
+{
+    // Add a text input box
+    var text_input_box = document.createElement("div");
+    text_input_box.className = "col-md-6 form-group";
+    text_input_box.innerHTML = "<label for='comment'>Enter Comments/Problems Here:</label>\n"
+        + "<textarea class='form-control' rows='5' id='comment'></textarea>";
+
+    var outermost_div = document.createElement("div");
+    outermost_div.className = "row";
+
+    var left_div = document.createElement("div");
+    left_div.className = "col-md-3";
+
+    var right_div = document.createElement("div");
+    right_div.className = "col-md-3";
+
+    outermost_div.appendChild(left_div);
+    outermost_div.appendChild(text_input_box);
+    outermost_div.appendChild(right_div);
+
+    document.body.appendChild(outermost_div);
+
+    // Add a submit button which sends the complaint/message to the server
+    var text_submission_button = document.createElement("div");
+    text_submission_button.className = "col-md-6";
+    text_submission_button.innerHTML = "<button type='button' class='btn btn-primary' onclick='submit_text()'"
+        + ">Submit</button>\n<button type='button' class='btn btn-default' onclick='clear_text()'>Clear</button>";
+
+    var text_submission_row = document.createElement("div");
+    text_submission_row.className = "row";
+
+    left_div = document.createElement("div");
+    left_div.className = "col-md-3";
+
+    right_div = document.createElement("div");
+    right_div.className = "col-md-3";
+
+    text_submission_row.appendChild(left_div);
+    text_submission_row.appendChild(text_submission_button);
+    text_submission_row.appendChild(right_div);
+
+    document.body.appendChild(text_submission_row); 
+};
+
+function submit_text()
+{
+    message = document.getElementById("comment").value;
+    
+    ws.send("SubmitReport:" + String(message))
+}
+
+function clear_text()
+{
+    document.getElementById("comment").value = "";
+}
+</script>
+<head>
+    <title>sGreen Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class=body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="error-template">
+                    <h1>
+                        Oops!</h1>
+                    <h2>
+                        404 Not Found</h2>
+                    <div class="error-details">
+                        Sorry, an error has occured, Requested page not found!
+                    </div>
+                    <div class="error-actions">
+                        <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                        Take Me Home </a><a onclick="add_contact_support()" class="btn btn-default btn-lg">
+                        <span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p id="footer-text" class="text-muted"></p>
+        </div>
+    </footer>
+</body>

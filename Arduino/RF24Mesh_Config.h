@@ -1,0 +1,4 @@
+#define NODEFAMILY 0
+#define NODEID 39
+#define SLEEP_INTERVAL 60
+#define CONFIG_VERSION "gh2" 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>sGreen Add Component Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script src="/static/js/greenhouse_state.js"></script>
+    <script src="/static/js/add_component.js"></script>
+</head>
+<body class="body">
+    <div style="background:#222 !important" class="jumbotron">
+        <div style="color:#9d9d9d" class="container">
+            <div class="row">
+				<div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <img src="/static/pictures/favicon.ico" class="img-responsive" style="height:150px;"/>
+                </div>
+                <div class="col-md-10">
+                    <h1 style="color:#9d9d9d">Add Component</h1>
+                    <p style="color:#9d9d9d">Select which greenhouse you wish to add a component to.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Div to contain any title messages -->
+	<div class="row">
+		<div class="col-lg-4 col-md-2 col-sm-1 col-xs-0"></div> 
+        <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+        <row>
+            <div class="span12" id="message-title">
+            </div>
+        </row>
+        </div>
+		<div class="col-lg-4 col-md-2 col-sm-1 col-xs-0"></div>
+	</div>
+    
+    <div class="container-fluid">
+        <div class="col-lg-4 col-md-2 col-sm-1 col-xs-0"></div>
+        <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12" id="greenhouse_display">
+        </div>
+        <div class="col-lg-4 col-md-2 col-sm-1 col-xs-0"></div>
+    </div>
+        
+    <div class="row" style="padding-bottom: 24px;">
+        <div class="col-lg-4 col-md-2 col-sm-1 col-xs-0"></div>
+        <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+        <row>
+            <div class="span12" id="empty-space">
+            </div>
+        </row>
+        </div>
+        <div class="col-lg-4 col-md-2 col-sm-1 col-xs-0"></div>
+    </div>
+    
+    <!-- Add/Remove Address Buttons -->
+    <div class="container-fluid">
+        <div class="col-lg-4 col-md-2 col-sm-1 col-xs-0"></div>
+        <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12 form-group">
+            <button type="button" class="btn btn-primary" onclick="window.location.href = '/create_greenhouse?' + String(username)">Create a Greenhouse</button>
+            <button type="button" class="btn btn-primary"  onclick="window.location.href = '/overview_screen?' + String(username)">Go Back</button>
+        </div>
+        <div class="col-lg-4 col-md-2 col-sm-1 col-xs-0"></div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <p id="footer-text" class="text-muted"></p>
+        </div>
+    </footer>
+</body>
+
+</html>

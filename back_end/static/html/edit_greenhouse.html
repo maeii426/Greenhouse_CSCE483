@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>sGreen Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/static/css/login.css">
+    
+    <script src="/static/js/greenhouse_state.js"></script>
+    <script src="/static/js/edit_greenhouse.js"></script>
+<style type="text/css">
+    .popover{
+        max-width:600px;
+    }
+</style>
+</head>
+<!-- To add colors to the background, insert them here: style="background:<color code> !important" -->
+<body class="body">
+    <div class="container-fluid" id="main-container">
+        <!-- Nice background color: style="background:#222 !important" -->
+        <div style="background:#222 !important" class="jumbotron">
+            <div class="row">
+				<div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <img src="/static/pictures/favicon.ico" class="img-responsive" style="height:150px;"/>
+                </div>
+                <div class="col-md-10">
+                    <h1 style="color:#9d9d9d">Edit Current Greenhouse Configuration!</h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" onclick="window.location.href = '/overview_screen?' + String(username)"> Go Back </button>
+        </div>
+        <!-- Panels for the greenhouse will go here! -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-group" id="main-panel">
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
+        
+        
+
+
+    <footer class="footer">
+        <div class="container">
+            <p id="footer-text" class="text-muted"></p>
+        </div>
+    </footer>
+</body>
+</html>
+
